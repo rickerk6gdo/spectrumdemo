@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="spectrumdemo.payments">
+  <ListView x:Name="PaymentList"
+            ItemsSource="{Binding Persons}"
+            ItemTapped="PaymentList_ItemTapped"
+            SelectionMode="None"
+             HasUnevenRows="True"
+          >
+  
+        <ListView.Header>
+
+            <Grid HorizontalOptions="FillAndExpand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+
+                <Label Text ="First" FontSize="Small" Padding="20,20" Grid.Column="0">
+
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnTapGestureRecognizerTapped"  NumberOfTapsRequired="1"  />
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label Text ="Last" FontSize="Small" Grid.Column="1" Padding="10,20">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnTapGestureRecognizerTapped"  NumberOfTapsRequired="1" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label Text ="Payment" FontSize="Small" Grid.Column="2" Padding="0,20">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnTapGestureRecognizerTapped"  NumberOfTapsRequired="1"  />
+                        
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label Text ="Amt" FontSize="Small" Grid.Column="3" Padding="0,20">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnTapGestureRecognizerTapped"  NumberOfTapsRequired="1"  />
+                    </Label.GestureRecognizers>
+                </Label>
+               
+            </Grid>
+        </ListView.Header>
+
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+
+                    
+
+
+                        <Grid HorizontalOptions="FillAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"></ColumnDefinition>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="{Binding first}" FontSize="Small"  Padding="20,20"  HorizontalOptions="FillAndExpand" Grid.Column="0"></Label>
+                        <Label Text="{Binding last}" FontSize="Small" Padding="10,20" HorizontalOptions="FillAndExpand"  Grid.Column="1"></Label>
+                        <Label Text="{Binding Paid}" FontSize="Small" Padding="0,20" HorizontalOptions="FillAndExpand"  Grid.Column="2"></Label>
+                        <Label Text="{Binding amount}" FontSize="Small" Padding="0,20" HorizontalOptions="FillAndExpand"  Grid.Column="3"></Label>
+                        </Grid>
+    
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+       
+  </ListView>
+</ContentPage>
